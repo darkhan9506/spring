@@ -11,4 +11,8 @@
         class="kz.zhursind.springcourse.KazakhMusic">
   </bean>
 
+  <bean id="musicPlayer"
+        class="kz.zhursind.springcourse.MusicPlayer">
+    <constructor-arg ref="musicBean"/>
+  </bean>
 </beans>
