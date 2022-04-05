@@ -9,25 +9,14 @@
 
   <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-  <bean id="musicBean1"
+  <bean id="musicBean"
         class="kz.zhursind.springcourse.KazakhMusic">
-  </bean>
-  <bean id="musicBean2"
-        class="kz.zhursind.springcourse.ClassicalMusic">
-  </bean>
-  <bean id="musicBean3"
-        class="kz.zhursind.springcourse.RockMusic">
   </bean>
 
   <bean id="musicPlayer"
-        class="kz.zhursind.springcourse.MusicPlayer">
-    <property name="musicList">
-      <list>
-        <ref bean="musicBean1"/>
-        <ref bean="musicBean2"/>
-        <ref bean="musicBean3"/>
-      </list>
-    </property>
+        class="kz.zhursind.springcourse.MusicPlayer"
+        scope="prototype">
+    <property name="music" ref="musicBean"/>
 
     <property name="name" value="${musicPlayer.name}"/>
     <property name="volume" value="${musicPlayer.volume}"/>
